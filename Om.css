@@ -1,0 +1,203 @@
+/* RESET */
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: inter, "Segoe UI", system-ui, Arial;
+  background: linear-gradient(180deg, #c4d7fd 0%, #cdcdcd 100%);
+  color: #e6eef6;
+}
+
+p {
+  margin: 0 0 12px 0;
+  font-size: 18px;
+}
+/* ─────────────── TOP BAR ─────────────── */
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 20px;
+  background: linear-gradient(to right, #e8edf5, #00d2ff);
+  color: white;
+  font-size: 22px;
+  font-weight: bold;
+}
+
+.brand {
+  font-size: 20px;
+}
+
+.top-action .btn {
+  margin-left: 8px;
+}
+
+.topbar h1 {
+  margin: 0;
+}
+
+.btn {
+  display: inline-block;
+  background: #0066cc;
+  color: #fff;
+  border-radius: 12px;
+  padding: 6px 14px;
+  text-decoration: none;
+  cursor: pointer;
+  border: none;
+}
+
+.btn.small {
+  font-size: 14px;
+}
+
+.btn:hover {
+  transform: scale(1.08);
+}
+
+.btn.active {
+  transform: translateY(1px);
+}
+
+/* MAIN LAYOUT */
+.container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 18px;
+  padding: 20px;
+}
+
+/* CARDS */
+.card {
+  background: #1c1f27;
+  padding: 20px;
+  border-radius: 14px;
+  box-shadow: 0 0 8px rgba(0, 0, 0, 0.3);
+}
+
+/* ABOUT CARD */
+.about-card p {
+  line-height: 1.6;
+}
+
+/* FAMILY SECTION */
+.family-card {
+  max-height: calc(100vh - 140px);
+}
+
+.family-grid p {
+  font-size: 18px;
+}
+.scrollable {
+  overflow-y: auto;
+}
+
+/* GRID OF FAMILY MEMBERS */
+.family-grid {
+  margin-top: 15px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+}
+
+.family-card h2 {
+  text-align: center;
+}
+/* FAMILY MEMBER CARD */
+.member-card {
+  background: #262c39;
+  padding: 15px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.member-card img {
+  width: 120px;
+  height: 120px;
+  border-radius: 60px;
+  object-fit: cover;
+  margin-bottom: 10px;
+}
+
+.member-card h3 {
+  margin: 6px 0 4px;
+}
+
+.member-card small {
+  opacity: 0.7;
+}
+
+.member-card p {
+  font-size: 14px;
+  opacity: 0.9;
+  margin-top: 8px;
+}
+
+/* LIGHT THEME */
+.light body {
+  background: #f7f7f7;
+  color: #000;
+}
+
+.light .card {
+  background: #ffffff;
+}
+
+.light .member-card {
+  background: #ececec;
+}
+
+.member-card h3 {
+  margin: 0 0 4px 0;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  padding-bottom: 4px;
+  background: linear-gradient(to right, #e8edf5, #00d2ff);
+}
+
+.member-card p {
+  font-size: 22px;
+}
+.member-card h3:hover {
+  color: rgb(39, 8, 236);
+  transform: scale(1.1);
+}
+
+.about-card h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid #d3e0ef;
+  padding-bottom: 2px;
+}
+
+.scrollable h2 {
+  margin: 0 0 10px 0;
+  font-size: 20px;
+  color: white;
+  text-align: center;
+  border-bottom: 2px solid #d3e0ef;
+  padding-bottom: 4px;
+}
+.scrollable h2:hover {
+  color: rgb(39, 8, 236);
+  transform: scale(1.1);
+}
+
+.about-card h2:hover {
+  color: rgb(39, 8, 236);
+  transform: scale(1.1);
+}
+
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 10px;
+  text-align: center;
+  color: white;
+}

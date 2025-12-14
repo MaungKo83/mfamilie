@@ -1,0 +1,161 @@
+:root{
+  --bg-top: #e6ecfb;
+  --bg-bottom: #c6d6f6;
+  --header-1: #2f64a8;
+  --header-2: #16314f;
+  --card-top: #666a72;
+  --card-bottom:#2f6cb5;
+  --accent:#3566d6;
+  --danger:#cc3d3d;
+  --radius:14px;
+  --shadow:0 6px 20px rgba(0,0,0,0.18);
+}
+
+*{box-sizing:border-box}
+body{
+  margin:0;
+  font-family:Inter, system-ui, Arial, sans-serif;
+  background: linear-gradient(var(--bg-top), var(--bg-bottom));
+  color:#111;
+  -webkit-print-color-adjust: exact !important;
+  print-color-adjust: exact !important;
+}
+
+/* header */
+header.top{
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 20px;
+  background:linear-gradient(var(--header-1), var(--header-2));
+  color:#fff;
+  box-shadow:0 2px 12px rgba(0,0,0,0.2);
+}
+header h1{ font-size:20px; font-weight:600; margin:0 }
+header .controls{ display:flex; gap:10px; align-items:center }
+.btn{
+  background:var(--accent); color:white; border:none; padding:8px 12px; border-radius:10px; cursor:pointer;
+}
+.btn.gray{ background:#6b7280 }
+.btn.danger{ background:var(--danger) }
+
+.container{
+  max-width:1400px; margin:18px auto; padding:12px;
+  display:grid; gap:28px; grid-template-columns: repeat(3, 1fr);
+}
+
+/* Card styling (gradient + rounded like screenshot) */
+.card{
+  background: linear-gradient(to bottom, var(--card-top), var(--card-bottom));
+  color:white;
+  border-radius: var(--radius);
+  padding:18px;
+  box-shadow: var(--shadow);
+  min-height:180px;
+  display:flex; flex-direction:column;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.2);
+}
+
+
+
+.card:hover {
+  transform: translateY(-10px);
+  color: #15346a;
+}
+
+header.top h1 {
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);  
+}
+
+
+.card h3 {
+    margin: 0 auto 12px;        /* centers horizontally */
+    font-size: 20px;
+    font-weight: 600;
+    padding: 6px 24px;          /* more padding like screenshot */
+    background: #ff6600;
+    border-radius: 12px;        /* rounder edges */
+    color: white;
+    display: inline-block;      /* needed for auto-centering */
+    text-align: center;
+}
+
+
+.card h3:hover {
+  color: #111;
+  transform: scale(1.1);
+}
+.card .line{ height:2px; background:rgba(255,255,255,0.45); margin-bottom:12px }
+
+/* inputs inside cards */
+input[type="text"], input[type="date"], input[type="time"], textarea, select {
+  width:100%; padding:10px; border-radius:8px; border:none;
+  margin-bottom:12px; font-size:14px;
+}
+
+/* small inline controls */
+.inline-row{ display:flex; gap:8px; align-items:center; }
+.inline-row .small{ padding:8px 10px; border-radius:8px; background:#e6ecff; color:#15346a; border:none; cursor:pointer; }
+
+/* list items white boxes */
+ul { list-style:none; margin:0; padding:0 }
+li.item{
+  background: rgba(255,255,255,0.95); color:#111; padding:10px; border-radius:8px; margin-bottom:10px;
+  display:flex; justify-content:space-between; align-items:center;
+}
+
+/* meal table styling */
+.meal-area{ display:flex; flex-direction:column; gap:12px; }
+.table-wrap{
+  max-height:300px; overflow:auto; padding-right:8px;
+  background: linear-gradient(180deg, rgba(255,255,255,0.02), rgba(255,255,255,0.02));
+  border-radius:8px;
+}
+.meal-table{ width:100%; border-collapse:collapse; color:white; min-width:680px }
+.meal-table thead th{ text-align:left; padding:8px 10px; font-weight:700; border-bottom:2px solid rgba(255,255,255,0.08) }
+.meal-table td{ padding:10px; vertical-align:top; border-bottom:1px solid rgba(0,0,0,0.08) }
+
+/* inside cells: pill for each entry */
+.meal-pill{
+  display:inline-flex; gap:8px; align-items:center; background:rgba(255,255,255,0.95); color:#111; padding:6px 8px; border-radius:999px;
+  margin:4px 6px 4px 0; font-size:13px;
+}
+.meal-pill button{ background:transparent; border:none; color:#b73333; font-weight:700; cursor:pointer; margin-left:6px }
+
+/* print modal */
+.print-overlay{ position:fixed; inset:0; background:rgba(0,0,0,0.45); display:none; align-items:center; justify-content:center; z-index:8000 }
+.print-box{ width:360px; background:white; padding:18px; border-radius:12px }
+
+/* responsive: collapse to single column under 1100px */
+@media (max-width:1100px){
+  .container{ grid-template-columns: repeat(2, 1fr) }
+}
+@media (max-width:700px){
+  .container{ grid-template-columns: 1fr }
+}
+
+/* PRINT rules: keep gradient for printed .printable cards */
+@media print{
+  body{ -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important }
+  header, .btn, .print-overlay, .print-box { display:none !important; }
+  /* hide everything then show printable clones appended to #printArea */
+  .card { display:none !important; }
+  #printArea, #printArea * { display:block !important; }
+  #printArea .card { page-break-inside:avoid; margin-bottom:18px }
+  /* remove interactive controls in printed area */
+  #printArea .add, #printArea button, #printArea input, #printArea select, #printArea textarea { display:none !important; }
+}
+
+/* ============================================================
+   FOOTER
+============================================================ */
+/* Style the footer */
+footer {
+  background-color: #777;
+  padding: 14px;
+  text-align: center;
+  color: white;
+}

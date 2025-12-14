@@ -1,0 +1,166 @@
+/* ===================== CSS VARIABLES ===================== */
+:root {
+    --primary: #009CFF;
+    --primary-light: #3BDAFF;
+
+    --bg: #E9EEF5;
+    --text: #1E1E1E;
+
+    --menu-bg: rgba(255, 255, 255, 0.65);
+    --menu-shadow: 0 4px 18px rgba(0,0,0,0.15);
+}
+
+/* ===================== Body ===================== */
+bbody {
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+}
+
+main.page {
+    flex: 1;       /* pushes footer down */
+}
+
+hr {
+  width: 40%;          /* adjust: 20%–60% */
+  margin: 20px 0;      /* space above/below */
+}
+
+
+
+/* ===================== TOPBAR ===================== */
+.topbar {
+    background: linear-gradient(to bottom, var(--primary-light), var(--primary));
+    padding: 14px 22px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    color: white;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.18);
+}
+
+.topbar .home {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 23px;
+    font-weight: 700;
+}
+
+.topbar .home img {
+    width: 34px;
+    height: 34px;
+}
+
+/* Mobile menu icon */
+.menu-toggle {
+    display: none;
+    font-size: 26px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+}
+
+/* ===================== RIGHT FLOATING MENU ===================== */
+.right-menu {
+    position: fixed;
+    right: 30px;
+    top: 100px;
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    padding: 20px;
+    background: var(--menu-bg);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    box-shadow: var(--menu-shadow);
+    transition: 0.35s ease;
+}
+
+/* Buttons inside menu */
+.right-menu .btn {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    background: var(--primary);
+    color: white;
+    padding: 10px 16px;
+    border-radius: 16px;
+    font-weight: 600;
+    text-decoration: none;
+    font-size: 15px;
+    transition: 0.2s ease;
+}
+
+.right-menu .btn img {
+    width: 20px;
+    height: 20px;
+}
+
+.right-menu .btn:hover {
+    background: #0078d4;
+    transform: translateX(-3px);
+}
+
+.logout {
+    background: #0054aa !important;
+}
+
+/* ===================== MAIN CONTENT ===================== */
+.page {
+    max-width: 1200px;
+    margin: 50px auto;
+    padding: 0 25px;
+}
+
+/* ===================== FOOTER ===================== */
+/* Footer styling */
+footer {
+    text-align: center;
+    padding: 20px;
+    color: #555;
+    font-size: 15px;
+}
+
+/* ===================== MOBILE RESPONSIVE ===================== */
+@media (max-width: 820px) {
+    .menu-toggle {
+        display: block;
+    }
+
+    .right-menu {
+        right: -300px; /* Hidden */
+        top: 70px;
+        width: 240px;
+    }
+
+    .right-menu.open {
+        right: 10px; /* Slides in */
+    }
+}
+
+
+
+.top-right {
+  justify-self: end;
+}
+
+.top-right a {
+  background: orange;
+  color: white;
+  padding: 8px 14px;
+  margin-left: 10px;
+  border-radius: 10px;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+
+
+
+
+

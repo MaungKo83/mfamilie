@@ -1,0 +1,228 @@
+/* ================================
+   RESET
+================================ */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Segoe UI", Arial, sans-serif;
+}
+
+/* ================================
+   GLOBAL
+================================ */
+body {
+  background: linear-gradient(180deg, #fefeff 0%, lab(100% 0.01 -0.01) 100%);
+  color: #e6eef6;
+  font-family: Inter, "Segoe UI", system-ui, Arial, sans-serif;
+}
+
+
+
+/* ================================
+   TOP BAR
+================================ */
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background: #1f1f1f;
+  padding: 15px 25px;
+  border-bottom: 1px solid #333;
+}
+
+.brand {
+  font-size: 1.4rem;
+  color: #fff;
+}
+
+/* Top Navigation Buttons */
+.top-action {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+.top-action .btn {
+  margin-left: 10px;
+  background: #2a2a2a;
+  padding: 8px 14px;
+}
+
+.top-action .btn:hover {
+  background: #444;
+}
+
+/* ================================
+   GENERAL BUTTONS
+================================ */
+.btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 16px;
+  background: #0d6efd;
+  color: white;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: 0.25s ease;
+  text-align: center;
+  border: 1px solid rgba(255, 255, 255, 0.45);
+  background: #fff;
+  font-weight: bold;
+}
+
+/* Hover (shared) */
+.btn:hover {
+  background: #0b5ed7;
+}
+
+/* Small Button Variant */
+.btn.small {
+  padding: 6px 14px;
+  font-size: 0.9rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.35);
+  color: #003;
+  backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.45);
+}
+
+.btn.small:hover {
+  background: rgba(255, 255, 255, 0.55);
+}
+
+/* Active State (e.g., Hjem) */
+.btn.small.active {
+  background: #fff;
+  font-weight: bold;
+}
+
+/* ================================
+   CARDS
+================================ */
+.card {
+  background:#006494;;
+  padding: 25px;
+  border-radius: 12px;
+  border: 1px solid #333;
+  box-shadow: 0 3px 10px rgba(0, 0, 0, 0.4);
+}
+
+/* ================================
+   AUTH GRID
+================================ */
+.auth-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 25px;
+  padding: 40px;
+}
+
+h2 {
+  color: #fff;
+  margin-bottom: 15px;
+}
+
+/* ================================
+   INPUT FIELDS
+================================ */
+label {
+  display: block;
+  margin-bottom: 6px;
+  color: #ddd;
+}
+
+input {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  border: 1px solid #555;
+  background: #181818;
+  color: #eee;
+  transition: border-color 0.2s;
+}
+
+input:focus {
+  border-color: #0d6efd;
+  outline: none;
+}
+
+/* ================================
+   FEEDBACK MESSAGES
+================================ */
+.message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+}
+
+.success {
+  background: #2ecc71;
+}
+
+.error {
+  background: #e74c3c;
+}
+
+/* ================================
+   DASHBOARD
+================================ */
+.dashboard {
+  padding: 35px;
+  color: #eee;
+  font-size: 1.3rem;
+}
+
+/* ================================
+.........message ........
+================================ */
+#message {
+  margin-top: 10px;
+  padding: 10px;
+  border-radius: 6px;
+  text-align: center;
+  font-weight: 600;
+}
+
+.success {
+  background: #2ecc71;
+  color: #000;
+}
+
+.error {
+  background: #e74c3c;
+  color: #fff;
+}
+
+
+
+#clock-box {
+  width: fit-content;
+  padding: 15px 25px;
+  background: #111;
+  border-radius: 12px;
+  margin: 10px auto;
+  box-shadow: 0 0 20px rgba(0, 128, 255, 0.5);
+}
+
+#datetime {
+  font-family: monospace;
+  font-size: 2rem;
+  color: #00c8ff;
+  letter-spacing: 2px;
+  text-align: center;
+}
+
+/* ================================
+   FOOTER
+================================ */
+.footer {
+  
+  color: #252222;
+  text-align: center;
+  font-weight: 700;
+  padding: 12px 0;
+}

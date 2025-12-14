@@ -1,0 +1,184 @@
+<!doctype html>
+<html lang="no">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Maung — Familie Dashboard</title>
+
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <script src="tema.js" defer></script>
+  <link rel="stylesheet" href="tema.css">
+  <link rel="icon" type="image/png" href="images/ficon.png">
+  
+</head>
+<body>
+
+  <!-- TOPBAR -->
+  <header class="topbar" role="banner">
+    <div class="topbar-left">
+      <div class="home-icon" title="Hjem"><i class="fa-solid fa-house"></i></div>
+      <div class="site-title">Maung Familie</div>
+    </div>
+
+    <div class="topbar-right" role="navigation" aria-label="Hovedmeny">
+      <button id="themeToggle" class="icon-btn" title="Tema"><i id="themeIcon" class="fa-solid fa-moon"></i></button>
+      <a class="pill small" href="index.html"><i class="fa-solid fa-gauge"></i> Dashboard</a>
+      <a class="pill small" href="om.html"><i class="fa-solid fa-circle-info"></i> Om Oss</a>
+      <button id="openPrint" class="pill small"><i class="fa-solid fa-print"></i> Print</button>
+      <a class="pill small" href="auth.html"><i class="fa-solid fa-right-to-bracket"></i> Logg inn</a>
+    </div>
+  </header>
+
+  <!-- PRINT AREA (dynamically filled before print) -->
+  <div id="printArea" style="display:none"></div>
+
+  <!-- MAIN -->
+  <main>
+    <div class="grid">
+      <!-- Familierutiner -->
+      <section class="card" id="routines-card">
+        <h3>👪 Familierutiner</h3>
+        <div class="line"></div>
+        <div class="list" id="routineList"></div>
+        <div class="row" style="margin-top:12px">
+          <input id="routineText" type="text" placeholder="Skriv rutine..." />
+          <button class="btn-primary" id="addRoutineBtn">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Handleliste -->
+      <section class="card" id="grocery-card">
+        <h3>🛒 Handleliste</h3>
+        <div class="line"></div>
+        <ul class="plain" id="groceryList"></ul>
+        <div class="row" style="margin-top:12px">
+          <input id="groceryText" type="text" placeholder="Legg til vare..." />
+          <button class="btn-primary" id="addGroceryBtn">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Måltider -->
+      <section class="card" id="meals-card">
+        <h3>🍽️ Måltider</h3>
+        <div class="line"></div>
+        <table class="meals-table">
+          <thead><tr><th>Dag</th><th>Frokost</th><th>Middag</th><th></th></tr></thead>
+          <tbody id="mealTbody"></tbody>
+        </table>
+        <div class="meal-inputs">
+          <input id="mealDay" placeholder="Dag (Man/Tir/...)" />
+          <input id="mealFrokost" placeholder="Frokost" />
+          <input id="mealMiddag" placeholder="Middag" />
+          <button id="mealAddBtn" class="btn-primary">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Notater -->
+      <section class="card" id="notes-card">
+        <h3>📝 Notater</h3>
+        <div class="line"></div>
+        <div id="notesList"><em>Ingen notater</em></div>
+        <div style="margin-top:12px">
+          <textarea id="noteText" rows="3" placeholder="Skriv notat..."></textarea>
+          <div style="margin-top:8px"><button class="btn-primary" id="addNoteBtn">Legg til</button></div>
+        </div>
+      </section>
+
+      <!-- Medisiner -->
+      <section class="card" id="meds-card">
+        <h3>💊 Medisinrutiner</h3>
+        <div class="line"></div>
+        <ul class="plain" id="medList"></ul>
+        <div class="row" style="margin-top:12px">
+          <input id="medText" type="text" placeholder="Navn - dose..." />
+          <button class="btn-primary" id="addMedBtn">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Ukekalender -->
+      <section class="card" id="calendar-card">
+        <h3>📅 Ukekalender</h3>
+        <div class="line"></div>
+        <div class="row" style="gap:8px;align-items:center">
+          <input type="date" id="calDate">
+          <input type="time" id="calTime">
+        </div>
+        <div style="margin-top:8px">
+          <input id="calText" type="text" placeholder="Hendelse..." />
+        </div>
+        <div style="margin-top:8px">
+          <button class="btn-primary" id="addCalendarBtn">Legg til hendelse</button>
+        </div>
+        <ul class="plain" id="calendarList" style="margin-top:10px"></ul>
+      </section>
+
+      <!-- Dagens sitat -->
+      <section class="card" id="quote-card">
+        <h3>🌟 Dagens sitat</h3>
+        <div class="line"></div>
+        <div id="quoteArea"><em>Ingen sitat</em></div>
+        <div style="margin-top:12px">
+          <input id="quoteText" type="text" placeholder="Skriv sitat..." />
+          <button class="btn-primary" id="addQuoteBtn">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Fødselsdager -->
+      <section class="card" id="birthdays-card">
+        <h3>🎉 Fødselsdager</h3>
+        <div class="line"></div>
+        <ul class="plain" id="birthdayList"></ul>
+        <div class="row" style="margin-top:12px">
+          <input id="bdayName" type="text" placeholder="Navn..." />
+          <input id="bdayDate" type="date" />
+          <button class="btn-primary" id="addBdayBtn">Legg til</button>
+        </div>
+      </section>
+
+      <!-- Quick add -->
+      <section class="card" id="quickadd-card">
+        <h3>⚡ Legg raskt til avtale</h3>
+        <div class="line"></div>
+        <input id="quickText" type="text" placeholder="legg raskt..." />
+        <div style="margin-top:8px">
+          <button class="btn-primary" id="addQuickBtn">Legg til</button>
+        </div>
+        <ul class="plain" id="quickList" style="margin-top:12px"></ul>
+      </section>
+    </div>
+  </main>
+
+  <!-- PRINT MODAL -->
+  <aside class="print-modal" id="printModal" role="dialog" aria-modal="true" aria-labelledby="printModalTitle">
+    <h4 id="printModalTitle">Velg hva som skal skrives ut</h4>
+
+    <label><input type="checkbox" class="print-check" data-target="#routines-card"> Familierutiner</label>
+    <label><input type="checkbox" class="print-check" data-target="#meds-card"> Medisiner</label>
+    <label><input type="checkbox" class="print-check" data-target="#meals-card"> Måltider</label>
+    <label><input type="checkbox" class="print-check" data-target="#grocery-card"> Handleliste</label>
+    <label><input type="checkbox" class="print-check" data-target="#notes-card"> Notater</label>
+    <label><input type="checkbox" class="print-check" data-target="#calendar-card"> Ukekalender</label>
+    <label><input type="checkbox" class="print-check" data-target="#quickadd-card"> Legg raskt til avtale</label>
+    <label><input type="checkbox" class="print-check" data-target="#birthdays-card"> Fødselsdager</label>
+    <label><input type="checkbox" class="print-check" data-target="#quote-card"> Dagens sitat</label>
+
+    <hr>
+    <label><input type="checkbox" id="includeCover"> Legg til forside</label>
+    <label><input type="checkbox" id="breakPerCard"> Ny side per seksjon</label>
+
+    <div class="modal-actions">
+      <button class="pill" id="printNow"><i class="fa-solid fa-print"></i> Skriv ut</button>
+      <button class="pill" id="cancelPrint">Avbryt</button>
+    </div>
+  </aside>
+
+<footer>
+Opphavsrett © 2025 Maung Familie
+</footer>
+
+<script>
+
+</script>
+</body>
+</html>
